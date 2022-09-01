@@ -2,6 +2,7 @@
   "name": "mongoose-lecture",
   "version": "0.0.0",
   "private": true,
+  "description":"This repo contains the live coding from the lecture on Mongoose and ExpressJS",
   "scripts": {
     "start": "node ./bin/www",
     "watch": "nodemon  ./bin/www",
