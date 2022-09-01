@@ -82,7 +82,7 @@ const delete_movie_by_condition = async (req, res, next) => {
   const condition = req.body;
 
   //in oder to check for thruthiness of an object we need to convert it to an array
-  if (!Object.keys(condition))
+  if (!Object.keys(condition).length)
     return res
       .status(400)
       .send("Please provide a condition for the delete operation");
