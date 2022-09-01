@@ -53,12 +53,18 @@ const retrieve_movie_by_id = async (req, res, next) => {
 
 const update_one_field_of_movie = async (req, res, next) => {
   const { id } = req.params;
-  const [key, value] = Object.entries(req.body)[0];
+  
+  //check if there is no body passed with the request
+  const condition = Object.entries(req.body);
 
-  if (!key || !value)
+  if (!condition.length)
     return res
       .status(400)
       .send("Please provide a condition for your update operation");
+
+  //if we pass in the body, we destructure the key and value out of our condition's array at index 0
+  const [[key, value]] = condition;
+  
   try {
     const updatedMovie = await Movie.findByIdAndUpdate(
       id,
